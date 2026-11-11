@@ -1,0 +1,17 @@
+FROM python:3.14-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+WORKDIR /app
+
+COPY pyproject.toml README.md ./
+COPY app/ ./app/
+COPY tests/ ./tests/
+
+# Install app + test dependencies
+RUN pip install --no-cache-dir ".[test]"
+
+# Default: run all tests
+ENV TEST_SUITE=""
+CMD sh -c "python -m pytest tests/${TEST_SUITE} -v --tb=short"

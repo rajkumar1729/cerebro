@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# ignore the .env file that contains environment variables
+.env
+
+# SQLite database
+*.db
+data/
+
+# tests
+*.ipynb
+test/
+scripts/
