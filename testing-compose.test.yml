@@ -1,0 +1,8 @@
+# Test/development entry point that reuses the canonical service definition.
+services:
+  cerebro:
+    extends:
+      file: docker-compose.yml
+      service: cerebro
+    environment:
+      LOG_LEVEL: DEBUG
